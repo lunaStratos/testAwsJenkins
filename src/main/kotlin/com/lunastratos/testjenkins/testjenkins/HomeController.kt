@@ -29,4 +29,18 @@ class HomeController @Autowired constructor(
 
     }
 
+    @RequestMapping("/test01", method = arrayOf(RequestMethod.GET))
+    @ResponseBody
+    fun test1(    ): ResponseEntity<*>? {
+
+        val result = "ok! test01"
+        try {
+            return ResponseEntity.ok<Any>(result.toString())
+        }catch (e:Exception){
+            return ResponseEntity.badRequest()
+                .body<Any>(result.toString())
+        }
+
+    }
+
 }
